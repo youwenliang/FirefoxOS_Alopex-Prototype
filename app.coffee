@@ -12,9 +12,9 @@ sketch.Notification.x = 0
 sketch.Notification.y = 47
 sketch.Notification.sendToBack()
 
-sketch.Notification.draggable.enabled = true
-sketch.Notification.draggable.speedX = 0
-sketch.Notification.draggable.speedY = 0
+sketch.NavBar.draggable.enabled = true
+sketch.NavBar.draggable.speedX = 0
+sketch.NavBar.draggable.speedY = 0
 
 # Drag Notification
 sketch.statusBar.draggable.enabled = true
@@ -57,7 +57,7 @@ sketch.statusBar.on Events.DragStart, (e) ->
 	pager.states.switch("stateB", time: .6, curve: "ease-in")
 	sketch.Notification.placeBefore background
     
-sketch.Notification.on Events.DragStart, (e) ->
+sketch.NavBar.on Events.DragStart, (e) ->
 	pager.states.switch("stateA", time: 1, curve: "spring(200,35,0)")
 	pager.scrollHorizontal = false
 
@@ -104,6 +104,8 @@ scroll.contentInset =
 scroll.on Events.Scroll, ->
     if scroll.scrollY <=0 then scroll.scrollY = 0
 
+sketch.Arrow.opacity = 0
+
 # Home Click Event
 sketch.Home.on Events.Click, ->
     if stage == "home"
@@ -118,7 +120,10 @@ sketch.Home.on Events.Click, ->
     else if stage == "app"
     	pager.snapToPage sketch.Screen, true
     	stage = "home"
-
+    	sketch.Arrow.animate
+    		properties: 
+	    		opacity: 0
+	    		
 # Back Click Event
 sketch.Arrow.on Events.Click, ->
 	pager.snapToNextPage("left", true)
@@ -126,6 +131,9 @@ sketch.Arrow.on Events.Click, ->
 	i = pager.horizontalPageIndex(current)
 	if i == 0
     	stage = "home"
+    	sketch.Arrow.animate
+    		properties: 
+	    		opacity: 0
 
 # Dynamically creating apps
 apps = []
@@ -190,7 +198,7 @@ for app in apps
                 
                 pager.addPage copy
                 pager.snapToPage copy, false
-
+                sketch.Arrow.opacity = 1
                 currentApp.animate
                     properties:
                         opacity: 0
