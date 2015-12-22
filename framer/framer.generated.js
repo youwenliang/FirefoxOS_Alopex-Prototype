@@ -20,6 +20,64 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
         "children" : [
           {
             "maskFrame" : null,
+            "id" : "9F668EB5-8057-434B-BB6F-B1E27F9C3541",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-Homenav-9F668EB5-8057-434B-BB6F-B1E27F9C3541.png",
+              "frame" : {
+                "y" : 988,
+                "x" : 380,
+                "width" : 750,
+                "height" : 150
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 988,
+              "x" : 380,
+              "width" : 750,
+              "height" : 150
+            },
+            "name" : "Homenav"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "28306FAF-3A0D-47A8-B875-58391AB9EB3F",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-Homenav-28306FAF-3A0D-47A8-B875-58391AB9EB3F.png",
+              "frame" : {
+                "y" : 988,
+                "x" : 380,
+                "width" : 750,
+                "height" : 150
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 988,
+              "x" : 380,
+              "width" : 750,
+              "height" : 150
+            },
+            "name" : "Homenav"
+          },
+          {
+            "maskFrame" : null,
             "id" : "8159417E-4902-42C0-BCE0-7E22E61BC58C",
             "visible" : true,
             "children" : [
@@ -879,35 +937,6 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
               "height" : 1049
             },
             "name" : "Apps"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "DCFA5BDC-A731-4ABC-83CE-3A774E8AEA21",
-            "visible" : true,
-            "children" : [
-
-            ],
-            "image" : {
-              "path" : "images\/Layer-searchBar-DCFA5BDC-A731-4ABC-83CE-3A774E8AEA21.png",
-              "frame" : {
-                "y" : 1004,
-                "x" : 400,
-                "width" : 711,
-                "height" : 117
-              }
-            },
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 1004,
-              "x" : 400,
-              "width" : 711,
-              "height" : 117
-            },
-            "name" : "searchBar"
           }
         ],
         "image" : {
@@ -953,14 +982,43 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
     "children" : [
       {
         "maskFrame" : {
-          "y" : 970,
+          "y" : 988,
           "x" : 1130,
           "width" : 750,
-          "height" : 1193
+          "height" : 1175
         },
         "id" : "FF8D40C9-9D64-429F-BB36-BBC3E6E00C6B",
         "visible" : true,
         "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "C50418A1-9B59-46D9-88FE-AE899C99660C",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-NYTnav-C50418A1-9B59-46D9-88FE-AE899C99660C.png",
+              "frame" : {
+                "y" : 988,
+                "x" : 1130,
+                "width" : 750,
+                "height" : 150
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 988,
+              "x" : 1130,
+              "width" : 750,
+              "height" : 150
+            },
+            "name" : "NYTnav"
+          },
           {
             "maskFrame" : null,
             "id" : "C8E47D13-6CB1-4273-B72A-F70459609DFD",
@@ -971,7 +1029,7 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
             "image" : {
               "path" : "images\/Layer-Background-C8E47D13-6CB1-4273-B72A-F70459609DFD.png",
               "frame" : {
-                "y" : 1154,
+                "y" : 1137,
                 "x" : 1130,
                 "width" : 750,
                 "height" : 2258
@@ -983,50 +1041,21 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
               "opacity" : 1
             },
             "layerFrame" : {
-              "y" : 1154,
+              "y" : 1137,
               "x" : 1130,
               "width" : 750,
               "height" : 2258
             },
             "name" : "Background"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "331B149C-6E53-4C73-960F-A04F8F766E58",
-            "visible" : true,
-            "children" : [
-
-            ],
-            "image" : {
-              "path" : "images\/Layer-searchBar-331B149C-6E53-4C73-960F-A04F8F766E58.png",
-              "frame" : {
-                "y" : 1004,
-                "x" : 1149,
-                "width" : 712,
-                "height" : 118
-              }
-            },
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 1004,
-              "x" : 1149,
-              "width" : 712,
-              "height" : 118
-            },
-            "name" : "searchBar"
           }
         ],
         "image" : {
           "path" : "images\/Layer-NYTscroll-FF8D40C9-9D64-429F-BB36-BBC3E6E00C6B.png",
           "frame" : {
-            "y" : 970,
+            "y" : 988,
             "x" : 1130,
             "width" : 750,
-            "height" : 1193
+            "height" : 1175
           }
         },
         "imageType" : "png",
@@ -1035,10 +1064,10 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
           "opacity" : 1
         },
         "layerFrame" : {
-          "y" : 970,
+          "y" : 988,
           "x" : 1130,
           "width" : 750,
-          "height" : 1193
+          "height" : 1175
         },
         "name" : "NYTscroll"
       }
@@ -1049,10 +1078,10 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
       "opacity" : 1
     },
     "layerFrame" : {
-      "y" : 970,
+      "y" : 988,
       "x" : 1130,
       "width" : 750,
-      "height" : 1193
+      "height" : 1175
     },
     "name" : "NYT"
   },
@@ -1063,14 +1092,43 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
     "children" : [
       {
         "maskFrame" : {
-          "y" : 970,
+          "y" : 988,
           "x" : 1880,
           "width" : 750,
-          "height" : 1193
+          "height" : 1175
         },
         "id" : "00B56CA8-4EB1-496E-82FE-7BFD499EFE6A",
         "visible" : true,
         "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "3108BF85-B539-4538-B19C-30C0AC9686E4",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-Yahoonav-3108BF85-B539-4538-B19C-30C0AC9686E4.png",
+              "frame" : {
+                "y" : 988,
+                "x" : 1880,
+                "width" : 750,
+                "height" : 150
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 988,
+              "x" : 1880,
+              "width" : 750,
+              "height" : 150
+            },
+            "name" : "Yahoonav"
+          },
           {
             "maskFrame" : null,
             "id" : "1240F808-26CB-4662-840F-9F79464E944A",
@@ -1081,7 +1139,7 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
             "image" : {
               "path" : "images\/Layer-Background-1240F808-26CB-4662-840F-9F79464E944A.png",
               "frame" : {
-                "y" : 1153,
+                "y" : 1137,
                 "x" : 1880,
                 "width" : 750,
                 "height" : 1964
@@ -1093,50 +1151,21 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
               "opacity" : 1
             },
             "layerFrame" : {
-              "y" : 1153,
+              "y" : 1137,
               "x" : 1880,
               "width" : 750,
               "height" : 1964
             },
             "name" : "Background"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "958638D8-9AC8-4270-BF69-7E5AFE17658B",
-            "visible" : true,
-            "children" : [
-
-            ],
-            "image" : {
-              "path" : "images\/Layer-searchBar-958638D8-9AC8-4270-BF69-7E5AFE17658B.png",
-              "frame" : {
-                "y" : 1004,
-                "x" : 1899,
-                "width" : 712,
-                "height" : 118
-              }
-            },
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 1004,
-              "x" : 1899,
-              "width" : 712,
-              "height" : 118
-            },
-            "name" : "searchBar"
           }
         ],
         "image" : {
           "path" : "images\/Layer-Yahooscroll-00B56CA8-4EB1-496E-82FE-7BFD499EFE6A.png",
           "frame" : {
-            "y" : 970,
+            "y" : 988,
             "x" : 1880,
             "width" : 750,
-            "height" : 1193
+            "height" : 1175
           }
         },
         "imageType" : "png",
@@ -1145,10 +1174,10 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
           "opacity" : 1
         },
         "layerFrame" : {
-          "y" : 970,
+          "y" : 988,
           "x" : 1880,
           "width" : 750,
-          "height" : 1193
+          "height" : 1175
         },
         "name" : "Yahooscroll"
       }
@@ -1159,12 +1188,127 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
       "opacity" : 1
     },
     "layerFrame" : {
-      "y" : 970,
+      "y" : 988,
       "x" : 1880,
       "width" : 750,
-      "height" : 1193
+      "height" : 1175
     },
     "name" : "Yahoo"
+  },
+  {
+    "maskFrame" : null,
+    "id" : "907212BE-CDA1-47A6-A5D0-8015A33759D2",
+    "visible" : true,
+    "children" : [
+
+    ],
+    "image" : {
+      "path" : "images\/Layer-Notification-907212BE-CDA1-47A6-A5D0-8015A33759D2.png",
+      "frame" : {
+        "y" : 988,
+        "x" : -370,
+        "width" : 750,
+        "height" : 1177
+      }
+    },
+    "imageType" : "png",
+    "kind" : "group",
+    "metadata" : {
+      "opacity" : 1
+    },
+    "layerFrame" : {
+      "y" : 988,
+      "x" : -370,
+      "width" : 750,
+      "height" : 1177
+    },
+    "name" : "Notification"
+  },
+  {
+    "maskFrame" : null,
+    "id" : "5745E05A-30D0-4B74-AB8F-03A61DBF7FCD",
+    "visible" : true,
+    "children" : [
+      {
+        "maskFrame" : null,
+        "id" : "A623BA64-7B56-41FE-A620-EC55D4040648",
+        "visible" : true,
+        "children" : [
+
+        ],
+        "image" : {
+          "path" : "images\/Layer-Icon-A623BA64-7B56-41FE-A620-EC55D4040648.png",
+          "frame" : {
+            "y" : 775,
+            "x" : 419,
+            "width" : 672,
+            "height" : 72
+          }
+        },
+        "imageType" : "png",
+        "kind" : "group",
+        "metadata" : {
+          "opacity" : 1
+        },
+        "layerFrame" : {
+          "y" : 775,
+          "x" : 419,
+          "width" : 672,
+          "height" : 72
+        },
+        "name" : "Icon"
+      },
+      {
+        "maskFrame" : null,
+        "id" : "372A9C2D-413D-4332-8CAA-C0ADA19B3101",
+        "visible" : true,
+        "children" : [
+
+        ],
+        "image" : {
+          "path" : "images\/Layer-search-372A9C2D-413D-4332-8CAA-C0ADA19B3101.png",
+          "frame" : {
+            "y" : 756,
+            "x" : 399,
+            "width" : 712,
+            "height" : 118
+          }
+        },
+        "imageType" : "png",
+        "kind" : "group",
+        "metadata" : {
+          "opacity" : 1
+        },
+        "layerFrame" : {
+          "y" : 756,
+          "x" : 399,
+          "width" : 712,
+          "height" : 118
+        },
+        "name" : "search"
+      }
+    ],
+    "image" : {
+      "path" : "images\/Layer-SearchBar-5745E05A-30D0-4B74-AB8F-03A61DBF7FCD.png",
+      "frame" : {
+        "y" : 741,
+        "x" : 380,
+        "width" : 750,
+        "height" : 150
+      }
+    },
+    "imageType" : "png",
+    "kind" : "group",
+    "metadata" : {
+      "opacity" : 1
+    },
+    "layerFrame" : {
+      "y" : 741,
+      "x" : 380,
+      "width" : 750,
+      "height" : 150
+    },
+    "name" : "SearchBar"
   },
   {
     "maskFrame" : null,
@@ -1337,41 +1481,12 @@ window.__imported__["Alopex Mockup/layers.json.js"] = [
       "height" : 118
     },
     "name" : "NavBar"
-  },
-  {
-    "maskFrame" : null,
-    "id" : "907212BE-CDA1-47A6-A5D0-8015A33759D2",
-    "visible" : true,
-    "children" : [
-
-    ],
-    "image" : {
-      "path" : "images\/Layer-Notification-907212BE-CDA1-47A6-A5D0-8015A33759D2.png",
-      "frame" : {
-        "y" : 988,
-        "x" : -370,
-        "width" : 750,
-        "height" : 1177
-      }
-    },
-    "imageType" : "png",
-    "kind" : "group",
-    "metadata" : {
-      "opacity" : 1
-    },
-    "layerFrame" : {
-      "y" : 988,
-      "x" : -370,
-      "width" : 750,
-      "height" : 1177
-    },
-    "name" : "Notification"
   }
 ]
 if (typeof(DeviceComponent) !== "undefined") {DeviceComponent.Devices["iphone-6-silver"].deviceImageJP2 = false};
-window.Framer.Defaults.DeviceView = {"deviceScale":-1,"deviceType":"iphone-6-silver-hand","contentScale":1,"orientation":0};
+window.Framer.Defaults.DeviceView = {"deviceScale":0.25,"deviceType":"iphone-6-silver-hand","contentScale":1,"orientation":0};
 
-window.Framer.Defaults.DeviceComponent = {"deviceScale":-1,"deviceType":"iphone-6-silver-hand","contentScale":1,"orientation":0};
+window.Framer.Defaults.DeviceComponent = {"deviceScale":0.25,"deviceType":"iphone-6-silver-hand","contentScale":1,"orientation":0};
 
 window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"FirefoxOS_Alopex-Prototype.framer"};
 
@@ -1671,14 +1786,8 @@ getLayerProperties = function(layer) {
   properties = {
     id: layer.id,
     name: layer.name || ((ref = layer.__framerInstanceInfo) != null ? ref.name : void 0) || (layer.constructor.name + " " + layer.id),
-    superLayer: null,
-    __framerInstanceInfo: layer.__framerInstanceInfo
+    superLayer: null
   };
-  if (properties.__framerInstanceInfo == null) {
-    properties.__framerInstanceInfo = {
-      hash: "#il|" + layer.__framerImportedFromPath + "|" + properties.name
-    };
-  }
   _.extend(properties, _.pick(layer, ["x", "y", "z", "index", "width", "height", "scale", "opacity", "rotationX", "rotationY", "rotationZ", "blur"]));
   if (properties.visible === false) {
     properties.visibleResult = false;
@@ -2007,17 +2116,6 @@ Runtime = (function(superClass) {
         });
       });
     }
-    Framer.Importer.load = function(path) {
-      var importer, layer, layers, name;
-      importer = new Framer.Importer(path);
-      layers = importer.load();
-      for (name in layers) {
-        layer = layers[name];
-        layer.__framerImportedFromPath = path;
-        layer;
-      }
-      return layers;
-    };
     bridge.send("runtime.init");
     return this._errorHandlerSetup();
   };
