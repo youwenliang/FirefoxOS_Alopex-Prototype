@@ -4,9 +4,11 @@ sketch = Framer.Importer.load "imported/Alopex Mockup"
 # Initialization
 sketch.Screen.x = 0
 sketch.Screen.y = 47
+sketch.Screen.width = 753
 
-sketch.SearchBar.x = 0
+sketch.SearchBar.x = -1
 sketch.SearchBar.y = 47
+sketch.SearchBar.width = 752
 sketch.SearchBar.bringToFront()
 
 sketch.Icon.opacity = 0
@@ -54,6 +56,8 @@ pager = new PageComponent
 	height: Screen.height
 	backgroundColor: null
 	scrollVertical: false
+	scrollHorizontal: false
+	directionLock: true
 	
 pager.addPage sketch.Screen
 pages.push(sketch.Screen)
@@ -66,16 +70,51 @@ pager.on "change:currentPage", ->
 	i = pager.horizontalPageIndex(current)
 
 	if i == 0
-    	stage = "home"
-    	searchText.html = "Search the Web"
-    	sketch.Arrow.animate
-    		properties: 
-	    		opacity: 0
-    else
+		stage = "home"
+		searchText.html = "Search the Web"
+		sketch.Icon.animate
+			properties:
+				opacity: 0
+			delay: .6
+			time: .4
+		sketch.Arrow.animate
+			properties:
+				opacity: 0
+			delay: .6
+			time: .4
+	else 
 		searchText.html = appObjs[current.name].url
+		sketch.Icon.placeBehind searchText
+		sketch.Icon.animate
+			properties:
+				opacity: 1
+			time: .2
 		sketch.Arrow.animate
     		properties: 
 	    		opacity: 1
+			time: .2
+			
+# pager.draggable.enabled = true
+# pager.draggable.speedX = 0
+# 
+# pager.draggable.maxDragFrame = pager.frame
+# pager.draggable.maxDragFrame.height *= 2
+# 
+# # If dragged beyond half of screen, swipe
+# pager.on Events.DragStart, ->
+# 	# sketch.Notification.placeBefore background
+# pager.on Events.DragEnd, ->
+#   if pager.y > ((@).height / 3)
+#     pager.animate
+#       properties:
+#         y: Screen.height
+#       curve: "ease"
+#       time: 0.6
+#   else
+#     pager.animate
+#       properties:
+#         y: 0
+#       curve: "spring(200,30,0)"
 
 # background
 background = new Layer
@@ -193,9 +232,11 @@ appObjs = {
 	Screen: {"color":"3f3f3f", "url":"Search the Web"}
 }
 
+appScroll = []
 
 scroll = ScrollComponent.wrap sketch.scroll
 scroll.scrollHorizontal = false
+scroll.directionLock = true
 scroll.contentInset =
     bottom: 70
 scroll.on Events.Scroll, ->
@@ -225,6 +266,10 @@ sketch.Arrow.on Events.Click, ->
 	i = pager.horizontalPageIndex(current)
 	if i == 0
     	stage = "home"
+
+# Set directionLock and threshold
+scroll.content.draggable.directionLock = true
+scroll.content.draggable.directionLockThreshold = {x:25, y:25}
     	
 # Dynamically creating apps
 apps = []
@@ -241,7 +286,8 @@ for i in [0 .. 11]
         style: {"overflow":"visible"}
     apps[i].placeBehind sketch.Icons
     appObjs[Object.keys(appObjs)[i]].content.sendToBack()
-
+    appScroll.push ScrollComponent.wrap appObjs[Object.keys(appObjs)[i]].content.subLayers[0]
+    appScroll[i].scrollHorizontal = false
 #     textbox = new Layer
 #         superLayer: apps[i]
 #         width: 221
@@ -257,7 +303,7 @@ for i in [0 .. 11]
 
 for app in apps
     app.on Events.Click, (event, layer)->
-        if not scroll.isMoving and stage == "home"
+        if not scroll.isMoving and stage == "home" and pager.isMoving == false
             # print stage
             currentIcon = appObjs[layer.name].icon.copy()
             currentIcon.frame = appObjs[layer.name].icon.screenFrame
@@ -284,10 +330,11 @@ for app in apps
                         opacity: 0
                     time: .6
 
-            Utils.delay 1.2, () ->
+            Utils.delay .8, () ->
                 # appContents.visible = true
                 appObjs[layer.name].content.x = 0
                 appObjs[layer.name].content.y = 47
+                appObjs[layer.name].content.width = 753
                 # appObjs[layer.name].content.superLayer = appContents
                 appObjs[layer.name].content.placeBefore sketch.Screen
                 copy = appObjs[layer.name].content.copy()
@@ -295,6 +342,7 @@ for app in apps
                 searchText.html = appObjs[layer.name].name
 
                 pager.addPage copy
+                pager.scrollHorizontal = true
                 pages.push(copy)
                 pagerCount++
                 pager.snapToPage copy, false
@@ -306,10 +354,3 @@ for app in apps
                     currentApp.destroy()
                     currentIcon.destroy()
                     stage = "app"
-
-
-
-
-
-
-
