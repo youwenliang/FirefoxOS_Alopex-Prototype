@@ -36,9 +36,9 @@ searchText = new Layer
 		"font-family" : "Fira Sans"
 	}
 
-sketch.NavBar.draggable.enabled = true
-sketch.NavBar.draggable.speedX = 0
-sketch.NavBar.draggable.speedY = 0
+sketch.navBg.draggable.enabled = true
+sketch.navBg.draggable.speedX = 0
+sketch.navBg.draggable.speedY = 0
 
 # Drag Notification
 sketch.statusBar.draggable.enabled = true
@@ -83,6 +83,7 @@ pager.on "change:currentPage", ->
 			delay: .6
 			time: .4
 	else 
+		stage = "app"
 		searchText.html = appObjs[current.name].url
 		sketch.Icon.placeBehind searchText
 		sketch.Icon.animate
@@ -147,63 +148,124 @@ tabScroll = new ScrollComponent
 	height: Screen.height
 	backgroundColor: null
 	visible: false
+	scrollVertical: false
+	scrollHorizontal: false
+
+tabList = []
+sketch.Add.opacity = 0
     
-sketch.NavBar.on Events.DragStart, (e) ->
+sketch.navBg.on Events.DragStart, (e) ->
 	if stage == "noti"
 		pager.states.switch("stateA", time: 1, curve: "spring(200,35,0)")
 		sketch.SearchBar.states.switch("stateA", time: .4, delay: .6)
 		pager.scrollHorizontal = false
 		stage = "home"
-# 	else if stage != "noti"
-# 		print pagerCount
-# 		print pages
-# 		i = 0
-# 		currentMask = new Layer
-# 			superLayer: current
-# 			width: current.width
-# 			height: current.height
-# 			y: 150
-# 			backgroundColor: appObjs[current.name].color
-# 			opacity: 0
-# 		
-# 		for app in pages
-# 			i++
-# 			if app == current || pagerCount == 1
-# 			else
-# 				tabs = app.copy()
-# 				tabScroll.visible = true
-# 				tabScroll.content.addSubLayer tabs
-# 				print tabs
-# 				tabs.frame = app.screenFrame
-# 				tabs.placeBehind sketch.NavBar
-# 				sketch.NavBar.bringToFront()
-# 				mask = new Layer
-# 					superLayer: tabs
-# 					width: tabs.width
-# 					height: tabs.height
-# 					y: 150
-# 					backgroundColor: appObjs[tabs.name].color
-# 					opacity: .5
-# 					
-# 					
-# 				tabs.x = 0
-# 				tabs.y = Screen.height
-# 				if pagerCount > 4
-# 					move = (Screen.height-118)/4
-# 				else
-# 					move = (Screen.height-118)/pagerCount
-# 				tabs.animate
-# 					properties:
-# 						y : i*move
-# 					time: .6
-# 				sketch.SearchBar.states.switch("stateB", time: .6, delay: .4+.2*(pagerCount-2))
-# 				currentMask.animate
-# 					properties:
-# 						opacity: .5
-# 					time: .6
-# 					delay: .4+.2*(pagerCount-2)
-# 				stage = "tabs"
-		# Tabs
+	else if stage != "noti"
+		i = 0
+				
+		currentTab = current.copy()
+		currentTab.frame = current.screenFrame
+		tabScroll.content.addSubLayer currentTab
+		
+		imageLayer = new Layer
+			superLayer: currentTab
+			width: 35, height: 35
+			image: "images/Close_tab.png"
+			x: current.width - 80
+			y: 55
+
+		currentMask = new Layer
+			superLayer: currentTab
+			width: current.width
+			height: current.height
+			y: 150
+			backgroundColor: appObjs[current.name].color
+			opacity: 0
+		
+		tabList.push currentTab
+
+		currentTab.on Events.Click, ->
+			# print this
+		
+		for app in pages
+			i++
+			if app == current || pagerCount == 1
+				i--
+			else
+				tabs = app.copy()
+				tabScroll.visible = true
+				tabScroll.content.addSubLayer tabs
+				# print tabs.subLayers[0]
+				
+				tabs.draggable.enabled = false
+				tabs.subLayers[0].scrollVertical = false
+				
+				tabs.frame = app.screenFrame
+				tabs.placeBehind sketch.NavBar
+				sketch.NavBar.bringToFront()
+								
+				imageLayer = new Layer
+					superLayer: tabs
+					width: 35, height: 35
+					image: "images/Close_tab.png"
+					x: tabs.width - 80
+					y: 55
+								
+				drop = new Layer
+					superLayer: tabs
+					width: tabs.width
+					height: tabs.height
+					y: -20
+					backgroundColor: "#232323"
+				drop.sendToBack()
+				
+				mask = new Layer
+					superLayer: tabs
+					width: tabs.width
+					height: tabs.height
+					y: 150
+					backgroundColor: appObjs[tabs.name].color
+					opacity: .5
+					
+				tabs.x = 0
+				tabs.y = Screen.height
+
+				if pagerCount > 4
+					move = (Screen.height-118-47)/4 + 47
+					tabScroll.scrollVertical = true
+					tabScroll.contentInset = bottom: -(tabs.height-move-47+118)
+				else
+					move = (Screen.height-118-47)/pagerCount + 47
+				tabs.animate
+					properties:
+						y : move + (move-47)*(i-1) + 20
+					time: .6
+				sketch.SearchBar.bringToFront()
+				sketch.SearchBar.states.switch("stateB", time: .6, delay: .6+.2*(pagerCount-2))
+				
+				sketch.Add.animate
+					properties:
+						opacity: 1
+						rotation: -90
+					time: .2
+					delay: .6+.2*(pagerCount-2)
+				sketch.Menu.animate
+					properties:
+						opacity: 0
+						rotation: -90
+					time: .2
+					delay: .6+.2*(pagerCount-2)
+				
+				currentMask.animate
+					properties:
+						opacity: .5
+					time: .6
+					delay: .4+.2*(pagerCount-2)
+				stage = "tabs"
+				tabList.push tabs
+				tabs.on Events.Click, ->
+					# print this
+	
 pager.on Events.StateDidSwitch, (previousState, newState) ->
 	return if previousState == newState
 	if newState == "stateA"
@@ -212,8 +274,40 @@ pager.on Events.StateDidSwitch, (previousState, newState) ->
 	else
 		sketch.SearchBar.states.switch("stateB", time: .6)
 
-
-	
+tabScroll.draggable.enabled = true
+tabScroll.draggable.speedX = 0
+tabScroll.draggable.speedY = 0
+tabScroll.on Events.DragStart, ->
+	tabList[0].subLayers[0].scrollVertical = false
+	for i in [0...tabList.length]
+		if i != 0
+			offsetY = tabList[i].y
+			tabList[i].animate
+				properties:
+					y: Screen.height+offsetY
+				time: 1
+	tabList[0].animate
+		properties:
+			opacity: 0
+		time: .6
+		delay: .4
+	sketch.Add.animate
+		properties:
+			opacity: 0
+			rotation: 0
+		time: .2
+		delay: .4
+	sketch.Menu.animate
+		properties:
+			opacity: 1
+			rotation: 0
+		time: .2
+		delay: .4
+	sketch.SearchBar.bringToFront()
+	sketch.SearchBar.states.switch("stateA", time: .6, delay: .4)
+	Utils.delay .7, () ->
+		tabList = []
+		tabScroll.visible = false
 
 # App information
 appObjs = {
@@ -288,6 +382,7 @@ for i in [0 .. 11]
     appObjs[Object.keys(appObjs)[i]].content.sendToBack()
     appScroll.push ScrollComponent.wrap appObjs[Object.keys(appObjs)[i]].content.subLayers[0]
     appScroll[i].scrollHorizontal = false
+    appScroll[i].directionLock = true
 #     textbox = new Layer
 #         superLayer: apps[i]
 #         width: 221
