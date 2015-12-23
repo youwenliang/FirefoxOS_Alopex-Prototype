@@ -153,6 +153,8 @@ tabScroll = new ScrollComponent
 
 tabList = []
 sketch.Add.opacity = 0
+
+tempStage = ""
     
 sketch.navBg.on Events.DragStart, (e) ->
 	if stage == "noti"
@@ -261,6 +263,7 @@ sketch.navBg.on Events.DragStart, (e) ->
 						opacity: .5
 					time: .6
 					delay: .4+.2*(pagerCount-2)
+				tempStage = stage
 				stage = "tabs"
 				tabList.push tabs
 				tabs.on Events.Click, ->
@@ -308,6 +311,7 @@ tabScroll.on Events.DragStart, ->
 	Utils.delay .7, () ->
 		tabList = []
 		tabScroll.visible = false
+		stage = tempStage
 
 # App information
 appObjs = {
