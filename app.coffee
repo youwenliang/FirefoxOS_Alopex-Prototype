@@ -164,7 +164,8 @@ sketch.navBg.on Events.DragStart, (e) ->
 		stage = "home"
 	else if stage != "noti"
 		i = 0
-				
+		tempStage = stage
+			
 		currentTab = current.copy()
 		currentTab.frame = current.screenFrame
 		tabScroll.content.addSubLayer currentTab
@@ -231,10 +232,12 @@ sketch.navBg.on Events.DragStart, (e) ->
 					
 				tabs.x = 0
 				tabs.y = Screen.height
-
+				offsetCount = pagerCount
+				
 				if pagerCount > 4
+					offsetCount = 4
 					move = (Screen.height-118-47)/4 + 47
-					tabScroll.scrollVertical = true
+					# tabScroll.scrollVertical = true
 					tabScroll.contentInset = bottom: -(tabs.height-move-47+118)
 				else
 					move = (Screen.height-118-47)/pagerCount + 47
@@ -243,27 +246,26 @@ sketch.navBg.on Events.DragStart, (e) ->
 						y : move + (move-47)*(i-1) + 20
 					time: .6
 				sketch.SearchBar.bringToFront()
-				sketch.SearchBar.states.switch("stateB", time: .6, delay: .6+.2*(pagerCount-2))
+				sketch.SearchBar.states.switch("stateB", time: .6, delay: .4)
 				
 				sketch.Add.animate
 					properties:
 						opacity: 1
 						rotation: -90
 					time: .2
-					delay: .6+.2*(pagerCount-2)
+					delay: .6
 				sketch.Menu.animate
 					properties:
 						opacity: 0
 						rotation: -90
 					time: .2
-					delay: .6+.2*(pagerCount-2)
+					delay: .6
 				
 				currentMask.animate
 					properties:
 						opacity: .5
 					time: .6
-					delay: .4+.2*(pagerCount-2)
-				tempStage = stage
+					delay: .4
 				stage = "tabs"
 				tabList.push tabs
 				tabs.on Events.Click, ->
