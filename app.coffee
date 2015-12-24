@@ -6,9 +6,10 @@ sketch.Screen.x = 0
 sketch.Screen.y = 47
 sketch.Screen.width = 753
 
-sketch.SearchBar.x = -1
-sketch.SearchBar.y = 47
-sketch.SearchBar.width = 752
+sketch.SearchBar.x = -6
+sketch.SearchBar.y = 45
+sketch.SearchBar.height = 155
+sketch.SearchBar.width = 760
 sketch.SearchBar.bringToFront()
 
 sketch.Icon.opacity = 0
@@ -24,6 +25,112 @@ sketch.Notification.x = 0
 sketch.Notification.y = 47
 sketch.Notification.sendToBack()
 
+sketch.LockScreen.x = 0
+sketch.LockScreen.y = 0
+sketch.LockScreen.bringToFront()
+
+stage = "lock"
+
+month = []
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+
+d = new Date();
+time = d.getHours()+":"+("0"+d.getMinutes()).slice(-2)
+date = month[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()
+
+sketch.firefox.draggable.enabled = true
+sketch.firefox.draggable.speedX = 0
+
+sketch.firefox.on Events.DragStart, ->
+	sketch.firefoxtext.animate
+		properties: 
+			opacity: 0
+		time: .2
+
+
+originX = sketch.firefox.x
+originY = sketch.firefox.y
+
+sketch.firefox.on Events.DragEnd, ->
+	if sketch.firefox.y < -Screen.height/5
+		this.animate
+			properties:
+				opacity:0
+				scale: 10
+			time: 1
+		dateBox.animate
+			properties: 
+				opacity: 0
+		timeBox.animate
+			properties: 
+				opacity: 0
+		sketch.LockScreen.animate
+			properties:
+				opacity: 0
+			delay: .6
+		stage = "home"
+		Utils.delay 1.6, ()->
+			sketch.LockScreen.visible = false
+	else 
+		this.animate
+		    properties:
+		      x: originX
+		      y: originY
+		    curve: "spring"
+		    curveOptions:
+		      friction: 20
+		      tension: 400
+		      velocity: 20
+		sketch.firefoxtext.animate
+			properties: 
+				opacity: 1
+			time: .4
+
+
+timeBox = new Layer
+	superLayer: sketch.LockScreen
+	width: 560
+	height: 300
+	x: (Screen.width-560)/2
+	y: 400
+	backgroundColor: null
+	html: time
+	style: {
+		"font-size": "190pt"
+		"text-align": "center"
+		"padding":"130px 0 0 20px"
+		"font-family":"Fira Sans"
+		"font-weight":300
+	}
+dateBox = new Layer
+	superLayer: sketch.LockScreen
+	width: 560
+	height: 50
+	x: (Screen.width-560)/2
+	y: 640
+	backgroundColor: null
+	html: date
+	style: {
+		"font-size": "30pt"
+		"text-align": "center"
+		"font-family":"Fira Sans"
+		"font-weight":300
+		"padding-top": "10px"
+	}
+timeBox.placeBehind sketch.firefoxlogo
+dateBox.placeBehind sketch.firefoxlogo
+	
 searchText = new Layer
 	superLayer:  sketch.search
 	width: sketch.search.width
@@ -46,7 +153,7 @@ sketch.statusBar.draggable.speedX = 0
 sketch.statusBar.draggable.speedY = 0
 
 # Interaction Stages
-stage = "home"
+
 pagerCount = 1
 pages = []
 
@@ -404,7 +511,7 @@ for i in [0 .. 11]
 
 for app in apps
     app.on Events.Click, (event, layer)->
-        if not scroll.isMoving and stage == "home" and pager.isMoving == false
+    	if not scroll.isMoving and stage == "home" and not pager.isMoving
             # print stage
             currentIcon = appObjs[layer.name].icon.copy()
             currentIcon.frame = appObjs[layer.name].icon.screenFrame

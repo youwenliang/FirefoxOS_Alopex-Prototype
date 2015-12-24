@@ -2814,5 +2814,172 @@
       "height" : 1175
     },
     "name" : "wired"
+  },
+  {
+    "maskFrame" : null,
+    "id" : "1AF01408-D1CF-411F-BBAA-7514A5D7E18F",
+    "visible" : true,
+    "children" : [
+      {
+        "maskFrame" : null,
+        "id" : "AB05D46D-C8E3-4FB2-AF4C-31FA071364D9",
+        "visible" : true,
+        "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "048C1742-A154-406B-A8D4-63A853108120",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : {
+                  "y" : 1173,
+                  "x" : -17,
+                  "width" : 151,
+                  "height" : 42
+                },
+                "id" : "915EF01E-9E99-4721-A85E-97D710941272",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-Group_9-915EF01E-9E99-4721-A85E-97D710941272.png",
+                  "frame" : {
+                    "y" : 1173,
+                    "x" : -17,
+                    "width" : 151,
+                    "height" : 42
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 1173,
+                  "x" : -17,
+                  "width" : 151,
+                  "height" : 42
+                },
+                "name" : "Group_9"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-firefoxtext-048C1742-A154-406B-A8D4-63A853108120.png",
+              "frame" : {
+                "y" : 1172,
+                "x" : -17,
+                "width" : 151,
+                "height" : 42
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 1172,
+              "x" : -17,
+              "width" : 151,
+              "height" : 42
+            },
+            "name" : "firefoxtext"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "3CDC9495-15E8-4262-A1E7-773B1EB8E6AF",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-firefox-3CDC9495-15E8-4262-A1E7-773B1EB8E6AF.png",
+              "frame" : {
+                "y" : 897,
+                "x" : -73,
+                "width" : 257,
+                "height" : 266
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 897,
+              "x" : -73,
+              "width" : 257,
+              "height" : 266
+            },
+            "name" : "firefox"
+          }
+        ],
+        "imageType" : "png",
+        "kind" : "group",
+        "metadata" : {
+          "opacity" : 1
+        },
+        "layerFrame" : {
+          "y" : 897,
+          "x" : -73,
+          "width" : 257,
+          "height" : 317
+        },
+        "name" : "firefoxlogo"
+      },
+      {
+        "maskFrame" : null,
+        "id" : "25DA9CAA-3BE9-4285-8945-97464C0FF2D4",
+        "visible" : true,
+        "children" : [
+
+        ],
+        "image" : {
+          "path" : "images\/Layer-Group-25DA9CAA-3BE9-4285-8945-97464C0FF2D4.png",
+          "frame" : {
+            "y" : 6,
+            "x" : 269,
+            "width" : 146,
+            "height" : 17
+          }
+        },
+        "imageType" : "png",
+        "kind" : "group",
+        "metadata" : {
+          "opacity" : 1
+        },
+        "layerFrame" : {
+          "y" : 6,
+          "x" : 269,
+          "width" : 146,
+          "height" : 17
+        },
+        "name" : "Group"
+      }
+    ],
+    "image" : {
+      "path" : "images\/Layer-LockScreen-1AF01408-D1CF-411F-BBAA-7514A5D7E18F.png",
+      "frame" : {
+        "y" : -9,
+        "x" : -316,
+        "width" : 750,
+        "height" : 1340
+      }
+    },
+    "imageType" : "png",
+    "kind" : "group",
+    "metadata" : {
+      "opacity" : 1
+    },
+    "layerFrame" : {
+      "y" : -9,
+      "x" : -316,
+      "width" : 750,
+      "height" : 1340
+    },
+    "name" : "LockScreen"
   }
 ]
