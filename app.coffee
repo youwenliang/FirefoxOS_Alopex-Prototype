@@ -31,6 +31,14 @@ sketch.LockScreen.bringToFront()
 
 stage = "lock"
 
+# background
+background = new Layer
+	width: Screen.width
+	height: Screen.height
+	backgroundColor: "#000"
+# background.placeBehind pager
+background.placeBehind sketch.LockScreen
+
 month = []
 month[0] = "January";
 month[1] = "February";
@@ -86,9 +94,17 @@ sketch.firefox.on Events.DragEnd, ->
 			properties:
 				opacity: 0
 			delay: .6
+			time: .6
+		background.animate
+			properties:
+				opacity:0
+			delay: 1
+			time: .6
 		stage = "home"
-		Utils.delay 1.6, ()->
+		Utils.delay 1.7, ()->
 			sketch.LockScreen.visible = false
+			background.placeBehind pager
+			background.opacity = 1
 	else 
 		this.animate
 		    properties:
@@ -231,12 +247,6 @@ pager.on "change:currentPage", ->
 #         y: 0
 #       curve: "spring(200,30,0)"
 
-# background
-background = new Layer
-	width: Screen.width
-	height: Screen.height
-	backgroundColor: "#000"
-background.placeBehind pager
 
 sketch.SearchBar.states.add
 	stateA:
