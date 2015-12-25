@@ -111,7 +111,7 @@ timeBox = new Layer
 	height: 300
 	x: 0
 	y: 400
-	# backgroundColor: null
+	backgroundColor: null
 	html: time
 	style: {
 		"font-size": "190pt"
