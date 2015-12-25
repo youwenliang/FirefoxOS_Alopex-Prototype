@@ -52,6 +52,13 @@ date = month[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()
 sketch.firefox.draggable.enabled = true
 sketch.firefox.draggable.speedX = 0
 
+constraints = new Layer width: 600, height: Screen.height, backgroundColor: null, borderRadius: 8
+constraints.center()
+
+# Set the constraints frame (x, y, width, height)
+sketch.firefox.draggable.constraints = constraints.frame
+
+
 sketch.firefox.on Events.DragStart, ->
 	sketch.firefoxtext.animate
 		properties: 
