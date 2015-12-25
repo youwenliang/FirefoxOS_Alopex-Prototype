@@ -107,11 +107,11 @@ sketch.firefox.on Events.DragEnd, ->
 
 timeBox = new Layer
 	superLayer: sketch.LockScreen
-	width: 560
+	width: Screen.width
 	height: 300
-	x: (Screen.width-560)/2
+	x: 0
 	y: 400
-	backgroundColor: null
+	# backgroundColor: null
 	html: time
 	style: {
 		"font-size": "190pt"
